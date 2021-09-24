@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review | Site</title>
+    <style>
+@media (max-width:680px) and (min-width:280px){
+h1{
+    font-size: 18px;
+}
+
+img{
+    width: 50px;
+    height:50px;
+}
+p{
+    font-size: 8px;
+}
+
+}
+        * {
+            margin: 0;
+            padding: 0%;
+            box-sizing: border-box;
+            font-family: ubuntu, 'Times New Roman', Times, serif;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          
+            height: 100vh;
+            
+        }
+
+        .container {
+        
+          width: 60%;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 5px;
+            box-shadow:1px 1px 10px 0px black;
+            
+        }
+     hr{
+        margin: 20px;
+         width: 12%;
+         height: 1px;
+         border: 1px solid orange;
+         background-color: orange;
+     }
+     #name ,#occupation{
+         margin: 5px;
+     }
+#occupation{
+    color: orange;
+}
+
+    </style>
+</head>
+
+<body>
+    <main>
+        
+        <div class="container">
+            <h1 class="heading" >
+                OUR REVIEWS
+
+            </h1>
+           
+            <hr>
+        
+            <div class="profile-pic">
+                <img src="profile1.JPG" alt="" height="110px" id="image">
+            </div>
+
+            <h4 id="name">Rashmika Mandanna</h4>
+            <h6 id="occupation">Actress</h6>
+            <p id="givenReview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit rerum in
+                accusantium placeat ipsam veritatis vitae eaque blanditiis delectus error exercitationem, maiores est
+                incidunt nam iste nemo necessitatibus sint vel voluptates! Deleniti, dolorum quaerat.</p>
+        
+        </div>
+    </main>
+    
+    <script>
+        const reviews=[
+            {
+                
+                name:"Rashmika Mandanna",
+                job:"Actress",
+img:"profile1.JPG",
+text:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit rerum in  accusantium placeat ipsam veritatis vitae eaque blanditiis delectus error exercitationem, maiores estincidunt nam iste nemo necessitatibus sint vel voluptates! Deleniti, dolorum quaerat.",
+            },
+            {
+                name:"Anirudh verma",
+                job:"Youtuber",
+img:"profile2.JPG",
+text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, sequi! In a aperiam doloribus harum, aliquam ut delectus est iure?",
+            },
+            {
+                name:"Shikhar Dixit",
+                job:"Memer",
+img:"profile3.JPG",
+text:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit, ducimus! Dolore ex impedit aperiam ipsum, dolores modi eum maxime nostrum voluptas corporis. Odio ab optio eveniet recusandae quae, quisquam non et. Voluptatibus, minima, magni quae, animi eveniet deserunt accusamus excepturi mollitia facere similique dolore corrupti.",
+            },
+        ]
+ //get all element from html
+ img=document.getElementById('image');
+ nam=document.getElementById('name');
+ job=document.getElementById('occupation');
+ text=document.getElementById('givenReview');
+
+ //starting item
+ currentItem=0;
+window.addEventListener("DOMContentLoaded",function(){
+   newPerson(currentItem);
+});
+
+function newPerson(currentItem){
+    const item=reviews[currentItem];
+    img.src=item.img;
+    nam.textContent=item.name;
+    job.textContent=item.job;
+    text.textContent=item.text;
+}
+document.onkeydown= function(a){
+
+    if (a.keyCode==39) {
+        currentItem+=1;
+        if (currentItem>reviews.length-1) {
+            currentItem=0;
+        }
+newPerson(currentItem);
+    } 
+
+    else if(a.keyCode==37){
+        currentItem-=1;
+        if (currentItem<0) {
+            currentItem=reviews.length-1;
+        }
+        newPerson(currentItem);
+    }
+
+}
+
+ </script>
+</body>
+
+</html>
